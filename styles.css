@@ -1,0 +1,102 @@
+/* ===== Global Styles ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #121212;
+    scroll-behavior: smooth;
+}
+
+/* ===== Header ===== */
+header { position: fixed; width: 100%; background-color: #1f1f1f; box-shadow: 0 2px 8px rgba(0,0,0,0.6); z-index: 1000; }
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 1em 2em; max-width: 1200px; margin: auto; }
+.logo { font-size: 1.5em; font-weight: 700; color: #4CAF50; }
+.nav-links { display: flex; gap: 2em; }
+.nav-links li { list-style: none; }
+.nav-links li a { text-decoration: none; font-weight: 600; color: #e0e0e0; transition: color 0.3s; }
+.nav-links li a:hover { color: #1de9b6; }
+.hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+.hamburger span { height: 3px; width: 25px; background-color: #e0e0e0; border-radius: 2px; transition: 0.3s; }
+
+/* ===== Hero Section ===== */
+.hero { display: flex; align-items: center; justify-content: center; text-align: center; padding: 12em 2em 6em; background: linear-gradient(135deg, #4CAF50, #1de9b6); color: #fff; border-bottom-left-radius: 50% 10%; border-bottom-right-radius: 50% 10%; }
+.hero h1 span { color: #ffd700; }
+.hero p { margin: 1em 0 2em; font-size: 1.2em; }
+.btn { display: inline-block; padding: 0.8em 2em; background-color: #fff; color: #4CAF50; font-weight: 600; border-radius: 50px; text-decoration: none; transition: all 0.3s; }
+.btn:hover { background-color: #1de9b6; color: #000; transform: scale(1.05); }
+
+/* ===== Sections ===== */
+section { padding: 5em 2em; }
+.section-title { text-align: center; margin-bottom: 3em; font-size: 2.2em; color: #4CAF50; }
+
+/* ===== Projects ===== */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2em; }
+.project-card { background-color: #1f1f1f; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.6); transition: transform 0.4s, box-shadow 0.4s; text-align: center; padding-bottom: 1em; opacity: 0; transform: translateY(50px); }
+.project-card.show { opacity: 1; transform: translateY(0); }
+.project-card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 12px 30px rgba(0,0,0,0.7); }
+.project-card img { width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #333; }
+.project-card h3 { margin: 1em 0 0.5em; color: #fff; }
+.project-card p { font-size: 0.95em; color: #ccc; padding: 0 1em; }
+
+/* ===== Skills ===== */
+.skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1em; opacity: 0; transform: translateY(30px); transition: all 0.6s; }
+.skills-grid.show { opacity: 1; transform: translateY(0); }
+.skills-grid span { background-color: #4CAF50; color: #fff; padding: 0.5em 1em; border-radius: 20px; font-weight: 600; transition: all 0.3s; }
+.skills-grid span:hover { background-color: #1de9b6; transform: scale(1.1); }
+
+/* ===== Contact Form ===== */
+.contact-form { max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 1em; opacity: 0; transform: translateY(30px); transition: all 0.6s; }
+.contact-form.show { opacity: 1; transform: translateY(0); }
+.contact-form input, .contact-form textarea { padding: 0.8em; border-radius: 8px; border: none; font-size: 1em; width: 100%; background-color: #2a2a2a; color: #e0e0e0; }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: #aaa; }
+.contact-form button { padding: 0.8em; border-radius: 50px; border: none; font-size: 1em; background-color: #4CAF50; color: #fff; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+.contact-form button:hover { background-color: #1de9b6; color: #000; transform: scale(1.05); }
+
+/* ===== Footer ===== */
+footer { text-align: center; padding: 2em 1em; background-color: #1f1f1f; color: #aaa; }
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .nav-links { position: fixed; right: -100%; top: 0; height: 100%; width: 50%; background-color: #1f1f1f; flex-direction: column; gap: 2em; padding-top: 5em; transition: right 0.3s; box-shadow: -2px 0 5px rgba(0,0,0,0.7); }
+    .nav-links.open { right: 0; }
+    .hamburger { display: flex; }
+}
+/* ===== Modal Lightbox ===== */
+.modal {
+    position: fixed;
+    top:0; left:0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+.modal img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+}
+.modal .close {
+    position: absolute;
+    top: 1em;
+    right: 2em;
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.modal .close:hover { color: #4CAF50; }
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+.show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
